@@ -50,10 +50,10 @@ RUN apt-get update && apt-get install -y \
 RUN groupadd -r chromium && useradd -r -g chromium -G audio,video chromium \
     && mkdir -p /home/chromium/Downloads && chown -R chromium:chromium /home/chromium
 
+RUN rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/* /usr/bin/qemu-*-static
+
 # Run as non privileged user
 USER chromium
-
-RUN rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/* /usr/bin/qemu-*-static
 
 ENTRYPOINT [ "/usr/bin/chromium" ]
 CMD [ "--user-data-dir=/data" ]
