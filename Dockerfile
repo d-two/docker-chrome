@@ -41,6 +41,7 @@ RUN apt-get update && apt-get install -y \
       libpangox-1.0-0 \
       libv4l-0 \
       fonts-symbola \
+      alsa-utils \
       --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
     && mkdir -p /etc/chromium.d/ \
